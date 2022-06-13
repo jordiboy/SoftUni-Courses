@@ -23,7 +23,7 @@ namespace P06.CinemaTickets
 
                 string ticketType = Console.ReadLine();
 
-                while (ticketType != "End" || ticketType == "Finish")
+                while (ticketType != "End")
                 {                    
                     currTickets++;
 

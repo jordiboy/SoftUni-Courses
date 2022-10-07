@@ -5,8 +5,7 @@ using System.Linq;
 namespace P11.ArrayManipulator
 {
     class Program
-    {
-                        // 80/100 in Judge
+    {                        
         static void Main(string[] args)
         {
             int[] myArray = Console.ReadLine()

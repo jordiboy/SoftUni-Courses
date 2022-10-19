@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace P05.BombNumbers       // 75/100
+namespace P05.BombNumbers
 {
     class Program
     {

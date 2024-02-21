@@ -1,0 +1,101 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font: 14px/1.5 Courgette;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #F5F5F5;
+}
+
+.container {
+    width: 1360px;    
+}
+
+.header {
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 2em 0;
+}
+
+.header h1 {
+    font-size: 3.42em;
+    line-height: 1em;
+}
+
+.header h2 {
+    text-align: right;
+    font-size: 2.28em;
+    color: #CB2027;
+}
+
+.content-container {
+    display: flex;
+    gap: 2em; 
+    justify-content: center;   
+}
+
+article {
+    background-color: white;
+    border-radius: 20px;
+}
+
+.media {
+    width: 340px;
+    height: 190px;
+    overflow: hidden;
+    border-radius: 20px 20px 0 0;
+}
+
+.content {
+    max-width: 300px;
+    padding: 1em;
+    text-align: center;
+    margin: 0 auto;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+}
+
+.content h3 {
+    font-size: 1.71em;
+    border-bottom: 1px solid #CB2027;
+}
+
+.content main {
+    margin-top: 1em;
+}
+
+.content p {
+    display: block;    
+}
+
+.content footer {    
+    margin-top: auto;
+}
+
+a {    
+    text-decoration: none;
+    color: black;    
+}
+
+i {
+    color: #CB2027;
+}

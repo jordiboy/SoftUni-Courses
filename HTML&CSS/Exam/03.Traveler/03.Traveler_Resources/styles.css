@@ -1,0 +1,202 @@
+@import url(https://fonts.googleapis.com/css2?family=Karla&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Cormorant+Infant&display=swap);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font: 16px/1.5 Karla, sans-serif;
+}
+
+h1, h2, blockquote {
+    font-family: "Cormorant Infant", serif;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+h2 {
+    font-size: 60px;
+}
+
+.container {
+    max-width: 1120px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.header {
+    background-image: url(images/poster.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    padding: 2em 5em;
+    height: 870px;
+    position: relative;
+}
+
+.bg {
+    background-color: rgb(0, 0, 0, 0.5);
+    background-size: cover;
+    position: absolute;
+    inset: 0;
+}
+
+.header .logo {
+    width: 110px;
+    height: auto;
+}
+
+.header .navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2em 5em;
+}
+
+.header ul {
+    list-style: none;
+    display: flex;
+    gap: 3em;
+}
+
+.header ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+
+.headdings {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 800px;
+    gap: 5em;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 90px;
+}
+
+.testimonial {
+    background-color: #F8F0E9;
+}
+
+.testimonial .container {
+    padding: 1em 5em 5em 5em;
+    text-align: left;
+}
+
+.testimonial p {
+
+}
+
+.testimonial blockquote {
+    font-size: 64px;
+    font-style: italic;
+    font-weight: bold;
+    line-height: 0.8em; 
+    margin-top: 1em;   
+}
+
+.support {
+    background-color: #E14747;
+    color: white;
+}
+
+.support .container {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    padding: 4em;
+}
+
+.support h3 {
+    font-size: 28px;
+}
+
+.article {
+    background-color: #F8F0E9;
+}
+
+.article .container {
+    display: flex;
+    flex-direction: column;    
+    gap: 3em;
+    max-width: 500px;
+    padding: 5em 0;    
+}
+
+.article .article-header {
+    font-weight: bold;
+    line-height: 3.5em;
+}
+
+.article .article-content {
+    text-align: left;
+    
+}
+
+.article .media {
+    width: 600px;
+    height: 465px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.button1 a, 
+.button2 a{
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 0.5em 1em;
+}
+
+.button1 {
+    text-align: left;
+}
+
+.guide {
+    background-color: #E14747;
+    color: white;    
+}
+
+.guide .container {
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+    padding: 5em;
+}
+
+.guide .container .button a{
+    text-decoration: none;
+    color: black;
+    background-color: #FAD87A;
+    padding: 1em;
+    border-radius: 50px;
+}
+
+.footer {
+    background-color: #352B2A;
+    color: rgb(255, 255, 255);
+    padding: 3em 10em;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+.footer-logo {
+    width: 75px;
+}
+
+.footer div:last-child p {
+    color: rgb(255, 255, 255, 0.3);
+}

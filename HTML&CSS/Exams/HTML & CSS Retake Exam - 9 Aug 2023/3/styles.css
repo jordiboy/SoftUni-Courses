@@ -1,0 +1,213 @@
+@import url(https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+body {
+    font: 16px/1.5 Inter;    
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    padding: 2em 3em;
+    background-color: #D9D9D9;
+}
+
+.navigation ul {
+    display: flex;
+    list-style: none;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: black;
+    margin: 1em;
+    padding: 0.5em 1em;
+}
+
+.navigation p a {
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.about {
+    padding: 2em 3em;
+    background-image: url(images/background.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position-y: bottom;
+    height: 760px;
+}
+.about div {
+    max-width: 650px;
+    margin: 10em 15em;
+    
+}
+
+.about h1 {
+   font-size: 4em;
+   line-height: 1em;
+   margin-bottom: 1em;
+}
+
+.about p {
+    color: white;
+    margin-bottom: 4em;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.about a {
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    border-radius: 5px;
+    padding: 1em 1.5em;
+    font-size: 1em;
+}
+
+.counting {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    padding: 3em;
+}
+
+.counting h1 {
+    color: #FF7C4C;
+    margin-bottom: 1em;
+}
+
+.articles {
+    background-color: #D9D9D9;
+    display: flex;
+    flex-direction: column;    
+}
+
+.articles article {
+    margin: 1em 5em;
+    display: flex;
+    align-items: center;
+}
+
+.articles span {
+    float: left;
+    display: block;
+    max-width: 500px;
+    margin-right: 2em;   
+}
+
+.articles h1 {
+    margin: 1em 0;
+    font-size: 2em;
+}
+
+.articles p {
+    color: rgb(0, 0, 0, 0.5);
+}
+
+.articles p:last-child {
+    margin-top: 2em;
+}
+
+.articles a {
+    text-decoration: none;
+    color: black;
+}
+
+.pricing-plans {
+    background-color: #F5F5F5;
+    margin: 0;    
+}
+
+.pricing-plans span {
+    font-weight: bold;
+}
+
+.pricing-plans>div {
+    display: flex; 
+    justify-content: space-between;   
+    gap: 2em;
+    margin: 0 5em;
+    padding: 3em;
+    background-color: white;
+}
+
+.pricing-plans>div div{
+    max-width: 60%;
+}
+
+.pricing-plans>div div:nth-child(2),
+.pricing-plans>div div:nth-child(3) {
+    text-align: center;
+    padding: 2em 5em;
+    width: 30%;
+}
+
+.pricing-plans>div div:nth-child(2) p,
+.pricing-plans>div div:nth-child(3) p{
+    line-height: 2em;
+}
+
+.pricing-plans>div div:nth-child(2) p:nth-child(2),
+.pricing-plans>div div:nth-child(3) p:nth-child(2){
+    font-size: 40px;
+    margin: 0.5em 0;
+}
+
+.pricing-plans>div div:nth-child(1) h1{
+       margin-bottom: 2em;
+}
+
+
+.pricing-plans>div div:nth-child(2) {
+    background-color: #FF7C4C;    
+}
+
+.pricing-plans>div div:nth-child(3) {
+    background-color: black;
+    color: white;
+}
+
+.pricing-plans>div div:nth-child(2) a {
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    padding: 1em 2em;    
+}
+
+.pricing-plans>div div:nth-child(3) a {
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    padding: 1em 2em;    
+}
+
+.pricing-plans>div div:nth-child(2) p:nth-child(7),
+.pricing-plans>div div:nth-child(3) p:nth-child(7){
+    margin-top: 3em;
+    margin-bottom: 1em;
+}
+
+.footer {
+    background-color: #D9D9D9;
+    display: flex;
+    justify-content: space-around;
+    padding: 2em 5em;
+}
+
+.footer a {
+    color: black;
+}

@@ -1,0 +1,64 @@
+@import url(https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font: 14px/1.5 Inter;
+    background-color: #D9D9D9;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.container {
+    display: flex;
+    gap: 2em;
+
+    padding: 2em;
+}
+
+.media {
+    height: 280px;
+    overflow: hidden;
+}
+
+.container section {
+    max-width: 500px;
+    box-shadow: 3px 3px 10px 1px rgba(0,0,0,0.75);
+}
+
+.content-main {
+    margin: 2em;    
+}
+
+.content-main h1 {
+    margin: 0.5em 0 1em 0;    
+}
+
+.content-footer {
+    display: flex;
+    align-items: center;
+    margin: 2em;
+    padding-top: 2em;
+    border-top: 2px solid gray;
+}
+
+.content-footer div:first-child {
+    height: 100px;
+    width: 100px;
+    overflow: hidden;
+    border-radius: 100px;
+}
+
+.time-read {
+    display: flex;
+    justify-content: space-between;
+    gap: 14em;
+    padding-left: 1em;
+}

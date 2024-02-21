@@ -1,0 +1,49 @@
+@media (width <= 600px) {
+
+    main .left-to-right article {
+        border-radius: 20%;
+        padding: 1em;
+        width: 400px;
+        margin: 0 auto;
+    }
+
+    .left-to-right:first-child {
+        padding: 3em;        
+    }
+
+    main .left-to-right article button {
+        display: none;
+    }
+
+    main section:nth-child(2) {
+        flex-direction: column;
+    }
+
+    main section:nth-child(2) button {
+        display: none;
+    }
+
+    main section:nth-child(2) article img {
+        width: 110%;
+    }
+   
+    main section:nth-child(4) {
+        flex-direction: column;
+    }
+
+    form {
+        width: 500px;
+        
+    }
+
+    section form label input,
+    section form textarea {
+        width: 100%;
+    }
+
+    form input[type="submit"] {
+        display: block;
+        margin: 30px auto;
+    }
+    
+}

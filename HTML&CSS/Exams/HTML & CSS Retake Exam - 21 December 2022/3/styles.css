@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font: 16px/1.5 Montserrat;
+    background-image: url(images/calculator-icon.svg);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Lato;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em 5em;
+}
+
+.header .logo {
+    display: flex;
+}
+
+.header ul {
+    display: flex;
+    gap: 1em;
+    list-style: none;
+}
+
+.header a {
+    text-decoration: none;
+    color: black;
+}
+

@@ -1,0 +1,84 @@
+* {    
+    box-sizing: border-box;
+}
+html {
+    font: 16px/1.5 Arial, Helvetica, sans-serif;    
+}
+h1, h2, h3, blockquote {
+    font-size: 1em;
+    line-height: 1.2;
+    font-family: Georgia, serif;    
+}
+body {
+    background-color: rgb(238, 238, 238);
+    margin: 3em;    
+}
+div {    
+    width: 80%;
+}
+main {
+    position: relative;    
+}
+article {
+    width: 75%;
+}
+aside {
+    display: block;
+    position: absolute;
+    width: 20%;
+    height: 100%;
+    top: 0;
+    right: 0;
+}
+div>header {
+    position: relative;
+    border-bottom: 3px solid gray;
+}
+div>header p {    
+    font-size: 3em;
+    font-weight: bold; 
+    text-shadow: 1px 2px 2px gray;   
+}
+header nav {
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 20px;
+}
+header nav ul li {
+    display: inline-block;
+    margin: 0.5em 1em 0.5em 1em;    
+}
+a{
+    text-decoration: none;
+    color: green;
+}
+a:hover {
+    color: rgb(165, 0, 0);
+}
+body>header {
+    border-bottom: 3px solid gray;    
+}
+blockquote {
+    width: 40%;
+    border-left: 2px solid rgb(192, 191, 191);
+    padding-left: 2em;
+    float: right;
+    font-style: italic;
+}
+blockquote p:last-child {
+    text-align: right;
+    padding-top: 0;
+}
+span {    
+    float: right;
+    margin: 1em;
+    box-shadow: 0 0 1em 0.5em rgb(0, 0, 0, 0.25);
+    border: 3px solid black;
+}
+section span:last-of-type {
+    float: left;        
+}
+img {    
+    margin: 0.5em;
+}

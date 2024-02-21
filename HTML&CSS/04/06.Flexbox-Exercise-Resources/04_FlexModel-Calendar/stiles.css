@@ -1,0 +1,46 @@
+html {
+    box-sizing: border-box
+}
+
+p {    
+    text-align: center;
+}
+
+span {
+    border: 1px solid black;
+    flex-grow: 1;
+}
+
+.container {
+    display: flex;
+    max-width: 65vw;    
+    background-color: antiquewhite;    
+}
+
+section {
+    display: flex;    
+    flex-wrap: wrap;      
+}
+
+.notes {
+    flex-direction: column;    
+}
+
+.container section:first-child {
+    min-width: 70%;
+}
+
+
+div section:first-child span:first-child {
+    width: 100%;
+    
+}
+
+div section:first-child span:nth-child(7) {
+    width: 100%;    
+}
+
+.notes {
+    background-color:pink;
+    width: 100%;    
+}

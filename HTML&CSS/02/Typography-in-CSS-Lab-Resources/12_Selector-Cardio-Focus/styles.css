@@ -1,0 +1,20 @@
+.joinBtn {
+    width: 10em;
+    height: 5ex;
+    background-color: gold;
+    border: 2px solid firebrick;
+    border-radius: 10px;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+  }
+  .joinBtn:hover {
+    background-color: red;
+  }
+  .joinBtn:active {
+    background-color: blue;
+  }
+  .joinBtn:focus {
+    background-color: darkmagenta;
+  }

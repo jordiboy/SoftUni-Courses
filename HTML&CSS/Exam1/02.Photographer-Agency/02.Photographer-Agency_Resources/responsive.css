@@ -1,0 +1,31 @@
+@media (width <= 600px) {
+
+    header nav ul{
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .header-title {
+        padding: 2em 0;
+    }
+
+    .choose-us ul {
+        flex-direction: column;
+    }
+
+    .choose-us li {
+        padding: 1em 6em;
+    }
+
+    .team-description-wrapper {
+        width: 100%;   
+        padding: 5em;     
+    }
+
+    .team-description ul {
+        justify-content: center;
+    }
+}

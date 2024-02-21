@@ -1,0 +1,28 @@
+body {
+    padding: 5em;
+}
+
+header {    
+    display: flex;
+    border-bottom: 2px solid black;
+    justify-content: space-between;
+    align-items: center;      
+}
+
+header p {
+    font-size: 3em;
+    font-weight: bold;
+    margin: 0.5em 0;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(0, 153, 0);
+    margin: 0.5em;
+    padding: 0.5em 1em;    
+}

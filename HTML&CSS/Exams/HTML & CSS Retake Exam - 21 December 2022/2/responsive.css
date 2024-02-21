@@ -1,0 +1,15 @@
+@media (width <= 600px) {
+    
+    .div-logo {
+        display: none;         
+    }
+
+    header ul {
+        display: none;
+    }
+
+    .options {
+        flex-direction: column;
+        justify-content: center;
+    }
+}

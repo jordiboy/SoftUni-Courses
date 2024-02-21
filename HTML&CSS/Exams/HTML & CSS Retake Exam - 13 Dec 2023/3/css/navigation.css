@@ -1,0 +1,20 @@
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {    
+    margin: 0.1em;
+}
+
+nav ul li a {
+    text-decoration: none;
+    background-color: #ECECEC;
+    padding:  1em;
+    color: gray;
+}
+
+nav ul li a:hover {
+    background-color: #56DBB1;
+    color: black;
+}

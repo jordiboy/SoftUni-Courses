@@ -1,0 +1,180 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font: 16px/1.5 'PT Sans', sans-serif;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.site-container {
+    
+    max-width: 1200px;
+    margin: 0 auto;    
+}
+
+.site-container header {
+    padding: 2em 11em;
+    background-image: url(image/computer-main.jpg);    
+    background-position: center;
+    background-size: cover;
+    height: 530px;
+    color: white;
+    position: relative;    
+}
+
+.bg {
+    display: block;
+    background: linear-gradient(0deg, rgba(157,154,154,0.3) 0%, rgba(40,39,39,0.3) 53%);
+    position: absolute;
+    inset: 0;
+}
+
+.logo {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em 5em;
+}
+
+header {
+    text-shadow: 1px 1px 2px black;
+}
+
+.button a{
+    text-decoration: none;
+    padding: 0.5em 1em;
+    background-color: #00D08E;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 5px;
+    text-shadow: none;
+}
+
+.button a:hover {
+    border: 2px solid white;
+    background-color: transparent;
+}
+
+.headings {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 5em;
+    padding-top: 2em;
+    text-align: center;    
+}
+
+.headings h1 {
+    font-size: 3.13em;
+    opacity: 1;
+    margin-bottom: 0.5em;
+}
+
+.headings p:first-child {
+    font-size: 1.25em;
+}
+
+.media {
+    flex: 0 0 50%;
+}
+
+.list {
+    display: flex;
+}
+
+.content-list {
+    padding: 3em;
+}
+
+.list ul {
+    list-style: none;
+}
+
+.list ul li {
+    line-height: 2em;
+}
+
+.list h2 {
+    font-size: 26px;
+    margin-bottom: 0.5em;
+}
+
+.list p {
+    font-size: 20px;
+    margin-bottom: 1em;
+}
+
+.list i {
+    margin-right: 1em;
+    color: #00D08E;
+}
+
+.icons {
+    display: flex;
+    text-align: center;
+    color: #00D08E;
+    font-weight: bold;
+}
+
+.icon {
+    margin: 0 auto;
+    margin-bottom: 0.5em;
+}
+
+.icons h2 {
+    color: black;
+    padding-top: 1em;
+    font-size: 26px;
+}
+
+.content-sections .sections {
+    flex: 1 0 50%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 3em;
+    padding: 2em 4em;
+}
+
+.sections .icon {
+    width: 75px;
+    aspect-ratio: 1/1;
+}
+
+.faq {
+    background-color: #B2F1DD;
+    text-align: center;
+}
+
+.faq h2 {
+    padding-top: 2em;
+    font-size: 26px;
+}
+
+.faq h3 {
+    padding-bottom: 0.3em;
+}
+.questions-container {    
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 3em;
+    padding: 2em 5em;
+}
+
+.questions-container div {
+    max-width: 30%;
+}
+
+footer {
+    padding-bottom: 1em;
+}

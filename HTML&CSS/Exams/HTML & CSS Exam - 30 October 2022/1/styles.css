@@ -1,0 +1,130 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}    
+
+html {
+    font: 14px/1.5 'Open Sans';
+}
+
+form, input, select, button{
+    font: inherit;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    max-width: 1400px;
+    max-height: 675px;
+    display: flex;    
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 1px 1px 14px 0px rgba(0,0,0,0.75);
+    background-color: #F6F7F8;
+}
+
+.media {
+    max-height: 680px;
+    max-width: auto;
+    border-radius: 10px 0 0 10px;
+    overflow: hidden;
+    flex: 1 0 50%;
+}
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em; 
+    text-align: center;
+    flex: 0 1 50%;  
+}
+
+.units a {
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    padding: 0.5em 1em;
+    border-radius: 10px;
+    margin: 2em;
+}
+
+.units span:first-child a {
+    background-color: #86D862;
+}
+
+.units span:last-child a {
+    background-color: #E0E0DF;
+    padding: 0.5em 2em;
+}
+
+.calculator h1 {
+    margin-bottom: 1em;
+}
+
+.calculator form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;    
+}
+
+.calculator h3 {
+    margin-bottom: 1em;
+}
+
+.calculator select {
+    padding-right: 7em;
+    background-color: white;
+    width: 25ch;
+    margin-right: 2em;
+}
+
+.calculator .gender select,
+.calculator .gender input {
+    width: 25ch;
+    border: 1px solid gray;
+    border-radius: 1px;
+}
+
+.calculator .weight input {
+    width: 70ch;
+    padding: 0.5em;    
+    border: 1px solid gray;
+    border-radius: 3px;
+}
+
+.calculator .height input {
+    width: 35ch;
+    padding: 0.3em;
+    margin: 0 1em;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+button {
+    background-color: #05A2D3;
+    border-radius: 50px;
+    color: white;
+    font-weight: bold;
+    padding: 0.5em 20em;
+    margin-top: 3em;
+    border: none;
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+}

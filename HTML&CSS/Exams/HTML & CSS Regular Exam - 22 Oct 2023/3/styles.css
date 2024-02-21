@@ -1,0 +1,154 @@
+@import url(https://fonts.googleapis.com/css?family=PT+Serif);
+@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font: 16px/1.5 "PT Serif", "PT Sans";    
+    background: url(images/background.jpg);
+    background-size: 100%;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.container {    
+    max-width: 1450px;
+    margin: 0 10em;      
+}
+
+header {
+    display: flex;
+    justify-content: space-between;    
+    padding: 3em;    
+}
+
+header div {
+    width: 100px;
+    height: auto;
+}
+
+header ul {
+    display: flex;
+    list-style: none;
+    gap: 3em;
+}
+
+header a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    font-size: 1.2em;
+}
+
+
+.about {
+    color: white;
+    max-width: 600px;
+    margin-left: 10em;  
+    
+}
+
+.about div h1 {
+    font-size: 45px;    
+}
+
+.about div p {
+    margin-top: 2em;
+}
+
+.info {    
+    background-color: white;
+    margin-top: 15em;
+    padding: 5em 0;
+    border-bottom: 2px solid #DDDDDD;
+}
+
+.articles {
+    display: flex;
+    gap: 2em; 
+}
+
+.container article {
+    max-width: 50%;
+}
+
+.container article h1 {
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+}
+
+.container article p:last-child {
+    margin-top: 2em;
+}
+
+.button {
+    text-decoration: none;
+    border: 1px solid #B0825C;
+    color: #B0825C;
+    padding: 0.5em 1em;    
+}
+
+.sponsors-partners {
+    background-color: white;
+    padding: 5em 0;
+    text-align: center;
+}
+
+.sponsors-partners h1 {
+    color: #B0825C;
+    font-size: 2.5em;
+}
+
+.logos {
+    display: flex;
+    justify-content: center;
+    gap: 4em;
+    margin: 2em 0; 
+}
+
+.logos span {
+    display: block;
+    width: 100px;
+    background-color: #DDDDDD;
+    border-radius: 100px;
+    padding: 1em;
+}
+
+.footer {
+    background-color: #171720;
+    color: rgb(255, 255, 255, 0.5);
+    border-top: 2px solid rgb(255, 255, 255, 0.3);
+    padding: 1.5em 0;
+}
+
+.links {
+    background-color: #171720;
+    padding: 4em 0;
+}
+
+.more-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    line-height: 2.5em;
+}
+
+.more-links h1 {
+    color: white;
+    margin-bottom: 1em;
+    font-size: 1.5em;
+}
+
+.more-links a {
+    text-decoration: none;
+    color: rgb(255, 255, 255, 0.5);
+    text-transform: uppercase;
+}

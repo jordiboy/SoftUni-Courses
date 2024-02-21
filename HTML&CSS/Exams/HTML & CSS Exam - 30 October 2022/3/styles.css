@@ -1,0 +1,160 @@
+@import url(https://fonts.googleapis.com/css?family=PT+Sans%7CPT+Serif);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font: 16px/1.5 'PT sans', sans-serif;
+}
+
+body {
+    background-image: url(image/fitness-main.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 50%;    
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+span {
+    display: block;
+    height: 2px;
+    width: 3ch;
+    background-color: #D01919;
+    margin: 1em auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    background-color: #D01919;
+    padding: 1em 5em;
+}
+
+.header ul {
+    list-style: none;
+    display: flex;
+    gap: 0.5em;
+}
+
+.header a {
+    color: white;
+}
+
+.navigation {
+    padding: 1em 5em;
+}
+
+.navigation ul{
+    list-style: none;
+    display: flex;
+    justify-content: end;
+    gap: 6em;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: white;
+}
+
+.hero-banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    padding: 15em;    
+    color: white;
+}
+
+.hero-banner h1 {
+    font-size: 50px;
+    letter-spacing: 0.2em;
+}
+
+.hero-banner a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    background-color: #D01919;
+    padding: 0.3em 1em;
+    border-radius: 5px;
+}
+
+.info {
+    background-color: white;
+    text-align: center;
+    padding: 3em;
+}
+
+.info h2 {
+    font-size: 2.5em;
+}
+
+.info-container h3 {
+    color: #D01919;
+    font-size: 1.25em;
+    margin-bottom: 1em;
+}
+
+.info-container p {
+    padding: 0 3em;
+}
+
+.info-container {
+    display: flex;
+    justify-content: center;
+    gap: 10em;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+.info-container .media {
+    max-width: 50px;
+    margin: 2em auto;
+}
+
+.coaches {
+    background-color: #EFEFEF;
+    text-align: center;
+    padding: 3em;  
+}
+
+.coaches h2 {
+    font-size: 2.5em;
+}
+
+.coaches-container {
+    display: flex;
+    justify-content: center;
+    gap: 10em;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+.coaches-container h4 {
+    color: #D01919;
+    margin: 1em;
+}
+
+.coaches-container p {
+    color: rgba(0, 0, 0, 0.3);
+    padding: 0 3em;
+}
+
+.coaches .media {
+    width: 300px;
+    margin: 2em auto;
+}
+
+.footer {
+    background-color: #D01919;
+    text-align: center;
+    padding: 0.5em;
+}

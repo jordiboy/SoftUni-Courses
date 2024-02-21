@@ -1,0 +1,158 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font: 16px/1.5 sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: serif;
+}
+
+.site {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.header {
+    background-image: url(image/image.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 840px;
+    position: relative;
+    padding: 2em;
+}
+
+.company {
+    width: 240px;
+    height: 200px;
+    padding: 2em 1em 1em 1em;
+    box-shadow: 3px 3px 11px 0px rgba(0,0,0,0.75);
+}
+
+.company h1 {    
+    padding-bottom: 0.2em;    
+}
+
+.company p {
+    display: inline-block;
+    border-top: 2px solid white;
+}
+
+.banner {
+    width: 320px;
+    height: 280px;
+    position: absolute;
+    text-align: right;
+    top: 30%;
+    right: 2.5%;    
+    background: linear-gradient(90deg, rgba(156,146,138,1) 0%, rgba(201,199,198,1) 100%);
+    padding: 3em 1em 1em 1em;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    box-shadow: 3px 3px 11px 0px rgba(0,0,0,0.75);
+}
+
+.container {
+    display: flex;
+}
+
+.main {
+    flex: 0 1 70%;
+    background-color: #F2F0F3;
+}
+
+.main h2 {
+    font-size: 2em;
+    font-weight: bold;
+    text-transform: uppercase;    
+}
+
+.services {
+    border-bottom: 2px solid #BAB1AD;
+
+}
+
+.services h2 {
+    margin: 2em 0 1em 2.5em ;
+}
+
+.services h2:last-child {
+    margin: 2em 0 0 2.5em;
+}
+
+.services p{
+    margin: 2em 5em;
+}
+
+.services span{
+    font-weight: bold;
+    text-transform: uppercase;    
+}
+
+.contact {
+    margin: 1em 5em;
+}
+
+.contact div{
+    display: flex;
+    flex-wrap: wrap;    
+}
+
+.contact p {
+    margin: 0 0.5em;
+    line-height: 2;
+}
+
+.contact span {
+    font-weight: bold;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #BAB1AD;
+    flex: 1 0 30%;
+    padding: 0 4em 0 2em;
+}
+
+.info div p:first-child {
+    color: white;
+    font-size: 4.125em;
+    font-weight: 100;
+    margin-bottom: 0;
+    line-height: 1;
+}
+
+.info div p:last-child {
+    text-transform: uppercase;
+    font-weight: 100;
+    margin-top: 0;    
+}
+
+.form {
+    margin-top: 2em;
+}
+
+.form input {
+    padding: 0.8em;
+    width: 300px;
+    color: rgb(255, 255, 255);
+    border-radius: 8px;
+    background-color: #BAB1AD;
+}
+
+.form button a {
+    text-decoration: none;
+    color: white;
+    background-color: #67784D;
+    padding: 0.8em 2em;
+    border-radius: 5px;
+    border: 1px solid #BAB1AD;
+}

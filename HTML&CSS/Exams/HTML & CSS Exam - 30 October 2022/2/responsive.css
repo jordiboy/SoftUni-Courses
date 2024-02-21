@@ -1,0 +1,46 @@
+@media (width <= 600px) {
+
+    .site-navigation {
+        display: none;
+    }
+
+    .entry-header {
+        background-position: center;
+    }
+
+    .site-logos-container {
+        min-width: 500px;
+    }
+
+    .site-information-image {
+        display: none;
+    }
+
+    .site-information-text {
+        margin: 0 auto;
+        text-align: center;    
+    }
+
+    .button {        
+        width: 120px;
+    }
+
+    .site-form-container .button {
+        margin: 0 auto;
+    }
+
+    .entry-description {
+        width: 100%;
+    }
+
+    .site-posts {
+        flex-direction: column;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .site-footer {
+        flex-direction: column;        
+        align-items: center;
+    }
+}

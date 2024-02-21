@@ -1,0 +1,74 @@
+@import url(https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font: 16px/1.5 Inter;
+    background-image: url(image/background.jpg);
+    display: flex;    
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    gap: 2em;          
+}
+
+.subscription {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;    
+    background-color: white;
+    padding: 2em;
+    width: 440px;
+    height: 650px;    
+    transition: height 0.2s, width 0.2s;
+}
+
+.subscription:hover {
+    height: 700px;
+    width: 470px;
+}
+
+.subscription p:first-child {
+    font-size: 25px;
+    margin-bottom: 1em;
+}
+
+.subscription p:nth-child(3) {
+    font-size: 14px;
+    color: gray;
+    margin: 1em 0;   
+}
+
+.subscription h1 {
+    font-size: 50px;
+}
+
+.subscription span {
+    font-size: 16px;    
+    font-weight: 400;    
+}
+
+.subscription ul {
+    list-style: none;
+    line-height: 2;
+    margin-bottom: 4em;
+}
+
+.subscription a {
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    padding: 1em 2em;
+    border-radius: 5px;
+}
+    

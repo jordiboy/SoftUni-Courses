@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        img {
+            width: 100px;
+            height: 100px;
+            display: block;
+            position: absolute;
+        }
+        .container {
+            border: 2px solid black;
+            padding: 5em;
+        }
+        .container div {
+            width: 200px;
+            height: 200px;            
+        }
+        .container .content {
+            
+            position: relative;
+                        
+        }
+        #sheet0 {
+            background-color: aquamarine;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            z-index: 10;
+        }
+        #sheet1 {
+            background-color: blue;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            transform: translate(7px, -8px) rotate(5deg);                      
+            z-index: 9;
+            height: 183px;
+        }
+        #sheet2 {
+            background-color: blueviolet;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            transform: rotate(10deg);
+            z-index: 8;
+        }
+        #sheet3 {
+            background-color: black;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            transform: rotate(15deg);
+            z-index: 7;
+        }        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div id="sheet0">
+
+            </div>
+            <div id="sheet1">
+
+            </div>
+            <div id="sheet2">
+    
+            </div>
+            <div id="sheet3">
+    
+            </div>
+        </div>        
+    </div>
+</body>
+</html>

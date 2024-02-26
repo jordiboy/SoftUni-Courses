@@ -1,0 +1,137 @@
+body {
+    color: #05073C;
+}
+
+.header {
+    color: white;
+}
+
+.header-container .border{
+    border-bottom: 1px solid rgb(255, 255, 255, 0.2);
+}
+
+.header-content h1 {
+    font-size: 5em;
+    line-height: 1.2;
+}
+
+.header-content header p {
+    font-size: 1.28em;
+}
+
+.header-content main {
+    line-height: 1.8;
+}
+
+.header-content footer {
+    margin-top: 2em;
+}
+
+.header-content .button {
+    padding: 1.5em 3em;
+    text-decoration: none;
+    color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+.destinations {
+    color: #05073C;
+}
+
+.destinations header a {
+    text-decoration: none;
+    color: #05073C;
+}
+
+.choise {
+    background-color: #FEF7F4;
+    border-radius: 15px;
+}
+
+.choise main > div {
+    max-width: 335px;
+    border-radius: 15px;
+    padding: 4em;
+    background-color: white;
+    line-height: 2;
+}
+
+.choise main h3 {
+    margin: 1em 0;
+}
+
+.popular header a {
+    text-decoration: none;
+    color: #05073C;
+}
+
+.footprints {
+    background-color: #FEF7F4;
+    border-radius: 15px;
+}
+
+.opinions {
+    background-color: #05073C;
+    border-radius: 15px;
+    color: white;
+}
+
+.opinions .container > p {
+    text-align: center;
+    margin: 3em;
+}
+
+.opinions img {
+    width: 100px;
+}
+
+.customer-revue {
+    background-color: white;
+    width: 520px;
+    color: #05073C;
+    padding: 2em;
+    border-radius: 15px;
+}
+
+.customer-revue .revue-header {
+    color: #EB662B;
+    font-weight: 500;
+    font-size: 18px;    
+}
+
+.customer-revue .revue-header div img{
+    width: 35px;    
+}
+
+.info {
+    background-color: #FEF7F4;
+    line-height: 2;
+    font-weight: 600;
+    border-radius: 15px;
+}
+
+.info .info-header p:first-child {
+    font-size: 20px;
+}
+
+.info .info-header p:last-child {
+    font-size: 16px;
+}
+
+.info .info-header span {
+    color: #EB662B;
+}
+
+.info ul {
+    list-style: none;
+}
+
+.info a {
+    text-decoration: none;
+    color: #05073C;
+}
+
+.info .links input {
+    
+}

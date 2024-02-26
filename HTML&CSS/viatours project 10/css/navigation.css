@@ -1,0 +1,45 @@
+.navigation {
+    display: flex;
+    gap: 2em;
+    align-items: center;    
+    margin: 0 auto;
+    justify-content: space-between;
+    padding: 2em;    
+}
+
+.navigation ul {
+    list-style: none;
+    display: flex;
+    gap: 2em;
+    align-items: center;
+
+        li a{
+            text-decoration: none;
+            color: white;
+            padding: 1em;
+        }
+}
+
+.logo ul li:first-child a{
+    color: #EB662B
+}
+
+.navigation > ul li:nth-last-child(2) {
+
+    border: 1px solid white;
+    padding: 1em;
+    border-radius: 50px;
+}
+
+.navigation > ul li:nth-last-child(1) {
+
+    border: 1px solid white;
+    padding: 1em 0.8em;
+    border-radius: 100%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+}

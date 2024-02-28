@@ -1,0 +1,45 @@
+.travel-articles .container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.travel-articles a {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: #05073C;
+}
+
+.travel-articles .media {
+    position: relative;
+    width: 410px;
+}
+
+.travel-articles .media p {
+    position: absolute;
+    top: 2em;
+    left: 2em;
+    background-color: white;
+    color: #05073C;
+    padding: 0.5em 1em;
+    border-radius: 50px;
+}
+
+.travel-articles .article-header span {
+    display: flex;    
+}
+
+.travel-articles .article-header p {
+    padding: 0.5em 1em;
+    margin: 1.5em 0;
+}
+
+.travel-articles .article-header p:first-child {
+    border-right: 2px solid #E7E6E6;
+    padding-left: 0;    
+}
+
+.travel-articles .article-content {
+    max-width: 410px;
+    font-size: 18px;
+}

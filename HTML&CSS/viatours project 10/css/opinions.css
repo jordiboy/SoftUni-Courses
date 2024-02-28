@@ -1,0 +1,127 @@
+.opinions {
+    padding-top: 7em;
+    background-color: #05073C;
+    border-radius: 15px;
+    color: white;
+}
+
+.opinions img {
+    width: 100px;    
+}
+
+.opinions .container > p {
+    text-align: center;
+    margin: 3em;
+}
+
+.opinions .main {
+    display: flex;
+    margin-bottom: 10em;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.opinions .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 5em;
+}
+
+.opinions .data {
+    max-width: 550px;
+    display: flex;    
+    gap: 5em;
+    margin-top: 2em;
+    line-height: 2;
+}
+
+.opinions .container {
+    z-index: 1;
+}
+
+.customer-container {
+    position: relative;
+}
+
+.customer-revue {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+    background-color: white;
+    width: 520px;
+    color: #05073C;
+    padding: 2em;
+    border-radius: 15px;
+}
+
+.customer-revue .revue-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+    color: #EB662B;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.customer-revue .main {
+    margin-bottom: 2em;       
+}
+
+.customer-revue .footer {
+    padding-top: 2em;
+    border-top: 2px solid rgb(0, 0, 0, 0.1);
+    justify-content: flex-start;
+    gap: 1em;
+}
+
+.customer-revue .revue-header div img{
+    width: 35px;    
+}
+
+.customer-revue .footer img {
+    width: 60px;
+}
+
+#infront {
+    z-index: 100;
+}
+
+#sheet1 {
+    width: 200px;
+    height: 270px;
+    border-radius: 15px;
+    position: absolute;    
+    bottom: 0;
+    right: 0;
+    background-color: #E7E6E6;
+    transform: translate(10px, -5px) rotate(2deg);    
+    z-index: 5;
+}
+
+#sheet2 {
+    width: 200px;
+    height: 250px;
+    border-radius: 15px;
+    position: absolute;    
+    bottom: 0;
+    right: 0;
+    background-color: #E7E6E6;
+    transform: translate(20px, -15px) rotate(5deg);    
+    z-index: 4;
+}
+
+#sheet3 {
+    width: 200px;
+    height: 240px;
+    border-radius: 15px;
+    position: absolute;    
+    bottom: 0;
+    right: 0;
+    background-color: #E7E6E6;
+    transform: translate(25px, -15px) rotate(8deg);    
+    z-index: 4;
+}

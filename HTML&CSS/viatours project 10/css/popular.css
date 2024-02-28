@@ -1,0 +1,35 @@
+.popular header {
+    display: flex;
+    justify-content: space-between;
+    margin: 2em 1em;    
+}
+
+.popular header a {
+    text-decoration: none;
+    color: #05073C;
+}
+
+.popular .main {
+    display: flex;
+    justify-content: space-between;
+}
+
+.popular .main > div {    
+    width: 190px;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    line-height: 2;
+}
+
+.popular .main .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    position: absolute;
+    inset: 0;
+    text-align: center;
+    color: white;
+    background-color: rgb(0, 0, 0, 0.4);
+    padding-bottom: 1.5em;
+}

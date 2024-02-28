@@ -1,0 +1,26 @@
+.footprints {
+    background-color: #FEF7F4;
+    border-radius: 15px;
+}
+
+.footprints header {
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+.footprints .footprints-main {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    position: static;    
+}
+
+.footprints .main > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.footprints .icon {
+    width: 60px;
+    margin: 2em auto;   
+}

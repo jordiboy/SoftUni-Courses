@@ -1,0 +1,54 @@
+.header {
+    height: 880px;
+    border-radius: 10px;
+    background-image: url(images/poster.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+
+.header-container .border{
+    border-bottom: 1px solid rgb(255, 255, 255, 0.2);
+}
+
+.logo img {
+    width: 180px;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+    height: 600px;    
+    margin: 0 auto;
+    padding: 0 2em;
+}
+
+.header-content h1 {
+    font-size: 5em;
+    line-height: 1.2;
+}
+
+.header-content header p {
+    font-size: 1.28em;
+}
+
+.header-content main {
+    line-height: 1.8;
+}
+
+.header-content footer {
+    margin-top: 2em;
+}
+
+.header-content .button {
+    padding: 1.5em 3em;
+    text-decoration: none;
+    color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+.header-content .tour {
+    width: 410px;
+}

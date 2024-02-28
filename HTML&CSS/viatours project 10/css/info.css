@@ -1,0 +1,89 @@
+.info {
+    background-color: #FEF7F4;
+    line-height: 2;
+    font-weight: 600;
+    border-radius: 15px;
+}
+
+.info ul {
+    list-style: none;
+}
+
+.info a {
+    text-decoration: none;
+    color: #05073C;
+}
+
+.info-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 7em 4em 7em;    
+    border-bottom: 2px solid rgb(235, 234, 234);
+}
+
+.info .info-header p:first-child {
+    font-size: 20px;
+}
+
+.info .info-header p:last-child {
+    font-size: 16px;
+}
+
+.info .info-header span {
+    color: #EB662B;
+}
+
+.info .links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2em;    
+}
+
+.info .links h2 {
+    margin: 1em 0;
+}
+
+.info .contact p,
+.info .contact a {
+    font-weight: 400;
+}
+
+.info .contact p {
+    margin-bottom: 0.5em;
+}
+
+.info ul li {
+    line-height: 2.5;
+}
+
+.info .container {
+    padding: 5em;
+}
+
+.info .subscribe p{
+    font-weight: 400;
+}
+
+.info .links form {
+    position: relative;
+    display: inline-block;
+}
+
+.info input {
+    padding: 1em;
+    width: 260px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    border: 1px solid rgb(231, 231, 231);
+}
+
+.info .links button {
+    position: absolute;
+    top: 0;
+    bottom: 0; 
+    right: 15px;
+    margin: auto 0; 
+    border: none;    
+    background-color: transparent;
+}

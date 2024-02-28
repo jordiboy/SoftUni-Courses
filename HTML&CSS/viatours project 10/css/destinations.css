@@ -1,0 +1,35 @@
+.destinations {
+    color: #05073C;
+}
+
+.destinations main{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2em;    
+}
+
+.destinations header {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    padding: 2em 1em;
+}
+
+.destinations header a {
+    text-decoration: none;
+    color: #05073C;
+}
+
+.destinations .media {
+    width: 110px;
+}
+
+.destinations main > div {
+    max-width: 300px;
+    display: flex;
+    gap: 2em;
+    align-items: center;
+    border: 1px solid rgb(0, 0, 0, 0.1);
+    border-radius: 15px;
+    padding: 1em;
+}

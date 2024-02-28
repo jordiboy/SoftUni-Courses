@@ -6,6 +6,24 @@
 
 @import url(css/navigation.css);
 
+@import url(css/header.css);
+
+@import url(css/destinations.css);
+
 @import url(css/slider.css);
 
-@import url(css/styles.css);
+@import url(css/choice.css);
+
+@import url(css/popular.css);
+
+@import url(css/footprints.css);
+
+@import url(css/best-of.css);
+
+@import url(css/opinions.css);
+
+@import url(css/travel-articles.css);
+
+@import url(css/info.css);
+
+@import url(css/footer.css);

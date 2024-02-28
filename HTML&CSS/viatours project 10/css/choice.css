@@ -1,0 +1,47 @@
+.choise {
+    background-color: #FEF7F4;
+    border-radius: 15px;
+}
+
+section:nth-child(4) {
+    position: relative;
+}
+
+.outer-img {
+    width: 510px;
+    aspect-ratio: 1/1;
+    position: absolute;    
+    border-radius: 15px;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    z-index: 0;
+}
+
+.choise .icon {
+    width: 60px;    
+}
+
+.choise header {
+    display: inline-block; 
+    margin: 0 37em;
+    padding-bottom: 5em; 
+}
+
+.choise main {
+    display: flex;
+    gap: 2em;
+    justify-content: center;
+}
+
+.choise main > div {
+    max-width: 335px;
+    border-radius: 15px;
+    padding: 4em;
+    background-color: white;
+    line-height: 2;
+}
+
+.choise main h3 {
+    margin: 1em 0;
+}

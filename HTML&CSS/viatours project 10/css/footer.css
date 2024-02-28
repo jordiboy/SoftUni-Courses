@@ -1,0 +1,13 @@
+.site-footer .container {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;   
+}
+
+.site-footer .container div {
+    display: flex;
+}
+
+.site-footer img {
+    width: 45px;
+}

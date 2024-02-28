@@ -1,0 +1,53 @@
+.slider .container {
+    padding-top: 0;
+}
+
+.slider h2{
+    margin-bottom: 2em;
+}
+
+.slider-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    gap: 2em;
+}
+
+.slider-container .media {
+    width: 410px;    
+    text-decoration: none;
+    color: white;
+    position: relative;      
+}
+
+.slider-container .media .bg {
+    position: absolute;
+    inset: 0;
+    background-color: rgb(0, 0, 0, 0.2);
+}
+
+.slider-container .media .media-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 2em;
+}
+
+.slider-container .media .media-footer {
+    position: absolute;
+    display: flex;
+    align-items: end;    
+    bottom: 0;
+    left: 0;
+    padding: 2em;    
+}
+
+.slider-container .media .media-footer .label p:first-child {
+    font-size: 12px;
+    padding-left: 2em;
+}
+
+.slider-container .media .media-footer .label p:last-child {
+    font-size: 12px;
+    text-align: center;
+}

@@ -384,6 +384,10 @@ section:nth-child(4) {
     padding: 5em;
 }
 
+.info .subscribe p{
+    font-weight: 400;
+}
+
 .info .links form {
     position: relative;
     display: inline-block;

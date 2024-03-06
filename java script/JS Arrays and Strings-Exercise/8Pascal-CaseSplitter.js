@@ -1,11 +1,8 @@
 function solve(text) {
-
-    const pattern = /([A-Z][a-z]+)/g;
-    const matches = text.matchAll(pattern);
-
-    for (const match of matches) {
-        console.log(match.join(', '));
-    }
+    
+    const matches = text.matchAll(/[A-Z][a-z]*/g);
+    const words = Array.from(matches);
+    console.log(words.join(', '));   
 }
 
 solve('SplitMeIfYouCanHaHaYouCantOrYouCan');

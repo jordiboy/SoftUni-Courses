@@ -41,12 +41,19 @@
     margin-top: 2em;
 }
 
-.header-content .button {
-    padding: 1.5em 3em;
+.header-content .button {    
     text-decoration: none;
     color: white;
+    padding: 0;
+    margin-left: 3em;
+    transition: all 0.3s;
+}
+
+.header-content .button:hover {
+    padding: 1.5em 3em;
     border: 1px solid white;
     border-radius: 10px;
+    margin-left: 0;
 }
 
 .header-content .tour {

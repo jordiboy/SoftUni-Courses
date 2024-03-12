@@ -9,33 +9,28 @@
 
 .navigation ul {
     list-style: none;
-    display: flex;
-    gap: 2em;
-    align-items: center;
-
-        li a{
-            text-decoration: none;
-            color: white;
-            padding: 1em;
-        }
+    display: flex;    
+    align-items: center;        
 }
 
-.logo ul li:first-child a{
-    color: #EB662B
+.navigation ul li a{
+    text-decoration: none;
+    color: white;            
+    padding: 0;
+    margin: 0 2em;
+    transition: all 0.3s ;
 }
 
-.navigation > ul li:nth-last-child(2) {
-
+.navigation ul li a:hover {
     border: 1px solid white;
-    padding: 1em;
+    padding: 1em 2em;
+    margin: 0;
     border-radius: 50px;
 }
 
-.navigation > ul li:nth-last-child(1) {
-
-    border: 1px solid white;
-    padding: 1em 0.8em;
-    border-radius: 100%;
+.logo ul li:first-child {
+    color: #EB662B;
+    padding-right: 2em;
 }
 
 .logo {

@@ -3,12 +3,12 @@ function deleteByEmail() {
     let eMailElement = document.querySelector('input').value;
     let resultElement = document.getElementById('result');
 
-    const rows = Array
+    const row = Array
         .from(trElements)
-        .find(element => element.children[1].textContent.includes(eMailElement));
+        .find(tr => tr.children[1].textContent.includes(eMailElement));
 
-        if (rows) {
-            rows.remove();
+        if (row) {
+            row.remove();
             resultElement.textContent = 'Delete.';
         } else {
             resultElement.textContent = 'Not found.';

@@ -7,62 +7,61 @@ const nameInputElement = document.getElementById("g-name");
 const typeInputElement = document.getElementById("type");
 const playersInputElement = document.getElementById("players");
 
-loadGamesButton.addEventListener("click", (e) => {
+let currId = null;
+
+loadGamesButton.addEventListener("click", () => {
   getElements(baseUrl);
 });
 
-addGameButton.addEventListener("click", (e) => {
-  fetch(baseUrl, {
-    method: "post",
+addGameButton.addEventListener("click", async () => {
+  await fetch(baseUrl, {
+    method: "POST",
     headers: { "Content-type": "application/json" },
     body: JSON.stringify({
       name: nameInputElement.value,
       type: typeInputElement.value,
       players: playersInputElement.value,
     }),
-  }).then((res) => {
-    if (!res.ok) {
-      return;
-    }
-    clearInputs();
-    getElements(baseUrl);
   });
-  //clearInputs();
-  //getElements(baseUrl);
+  clearInputs();
+  getElements(baseUrl);
 });
 
-let currId = "";
-
-editButton.addEventListener("click", (e) => {
-  fetch(`${baseUrl}/${currId}`, {
-    method: "put",
+editButton.addEventListener("click", async () => {
+  await fetch(`${baseUrl}/${currId}`, {
+    method: "PUT",
     headers: { "Content-type": "application/json" },
     body: JSON.stringify({
       name: nameInputElement.value,
       type: typeInputElement.value,
       players: playersInputElement.value,
+      _id: currId,
     }),
-  }).then((res) => {
-    if (!res.ok) {
-      return;
-    }
-    clearInputs();
-    getElements(baseUrl);
   });
+
+  clearInputs();
+
   editButton.disabled = true;
   addGameButton.disabled = false;
+
+  getElements(baseUrl);
 });
-function createElements(games) {
+
+async function getElements(baseUrl) {
+  const response = await fetch(baseUrl);
+  const games = await response.json();
+
   gameListElement.innerHTML = "";
-  for (const item in games) {
+
+  for (const game of Object.values(games)) {
     const pNameElement = document.createElement("p");
-    pNameElement.textContent = games[item].name;
+    pNameElement.textContent = game.name;
 
     const pTypeElement = document.createElement("p");
-    pTypeElement.textContent = games[item].type;
+    pTypeElement.textContent = game.type;
 
     const pPlayersElement = document.createElement("p");
-    pPlayersElement.textContent = games[item].players;
+    pPlayersElement.textContent = game.players;
 
     const divContentElement = document.createElement("div");
     divContentElement.classList.add("content");
@@ -70,54 +69,44 @@ function createElements(games) {
     divContentElement.appendChild(pTypeElement);
     divContentElement.appendChild(pPlayersElement);
 
-    const changeBtn = document.createElement("button");
-    changeBtn.classList.add("change-btn");
-    changeBtn.textContent = "Change";
+    const changeButton = document.createElement("button");
+    changeButton.classList.add("change-btn");
+    changeButton.textContent = "Change";
 
-    changeBtn.addEventListener("click", (e) => {
-      nameInputElement.value = games[item].name;
-      typeInputElement.value = games[item].type;
-      playersInputElement.value = games[item].players;
+    changeButton.addEventListener("click", () => {
+      nameInputElement.value = game.name;
+      typeInputElement.value = game.type;
+      playersInputElement.value = game.players;
+      currId = game._id;
 
-      currId = games[item]._id;
-
-      boardGameElement.remove();
+      divBoardGameElement.remove();
 
       editButton.disabled = false;
       addGameButton.disabled = true;
     });
 
-    const deleteBtn = document.createElement("button");
-    deleteBtn.classList.add("delete-btn");
-    deleteBtn.textContent = "Delete";
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("delete-btn");
+    deleteButton.textContent = "Delete";
 
-    deleteBtn.addEventListener("click", (e) => {
-      fetch(`${baseUrl}/${boardGameElement.getAttribute("data-id")}`, {
-        method: "delete",
-      }).then((res) => {
-        if (!res.ok) {
-          return;
-        }
-        clearInputs();
-        getElements(baseUrl);
+    deleteButton.addEventListener("click", async () => {
+      await fetch(`${baseUrl}/${game._id}`, {
+        method: "DELETE",
       });
-
-      //boardGameElement.remove();
-      //getElements(baseUrl);
+      getElements(baseUrl);
     });
 
     const divButtonsElement = document.createElement("div");
     divButtonsElement.classList.add("buttons-container");
-    divButtonsElement.appendChild(changeBtn);
-    divButtonsElement.appendChild(deleteBtn);
+    divButtonsElement.appendChild(changeButton);
+    divButtonsElement.appendChild(deleteButton);
 
-    const boardGameElement = document.createElement("div");
-    boardGameElement.classList.add("board-game");
-    boardGameElement.setAttribute("data-id", games[item]._id);
-    boardGameElement.appendChild(divContentElement);
-    boardGameElement.appendChild(divButtonsElement);
+    const divBoardGameElement = document.createElement("div");
+    divBoardGameElement.classList.add("board-game");
+    divBoardGameElement.appendChild(divContentElement);
+    divBoardGameElement.appendChild(divButtonsElement);
 
-    gameListElement.appendChild(boardGameElement);
+    gameListElement.appendChild(divBoardGameElement);
   }
 }
 
@@ -125,10 +114,4 @@ function clearInputs() {
   nameInputElement.value = "";
   typeInputElement.value = "";
   playersInputElement.value = "";
-}
-function getElements(baseUrl) {
-  fetch(baseUrl)
-    .then((response) => response.json())
-    .then((games) => createElements(games))
-    .catch((error) => console.error(error));
 }

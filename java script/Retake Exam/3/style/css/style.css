@@ -1,0 +1,257 @@
+@import url("https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&display=swap");
+@font-face {
+  font-family: "run";
+  src: url("../MarineCorpsPersonalUsed-ax9Mo.otf") format("truetype");
+}
+
+body {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  background: linear-gradient(#e6e6e6, #bbbbbb);
+  background-position: 0% 90%;
+  background-image: url("../img/bg-img.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 29px;
+}
+
+body > h1 {
+  background-color: rgba(0, 183, 255, 0.575);
+  color: #383e46;
+  text-shadow: #ffee00 2px 2px;
+  margin: 0;
+  font-size: 64px;
+  font-weight: 300;
+  font-family: run;
+ margin-top: -10px;
+}
+
+#form-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 900px;
+  height: 135px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgb(0, 0, 0), 10px 10px 30px rgba(0, 0, 0, 0.22);
+  background-color: rgba(0, 183, 255, 0.575);
+  margin-top: 70px;
+}
+
+#form {
+  width: 760px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'run';
+}
+
+#form > h1 {
+  padding: 4px;
+  margin-top: -0.3em;
+  color: #000000;
+  font-family: 'run';
+}
+
+label {
+  margin-top: 4px;
+  color: #000000;
+  font-weight: bold;
+  font-size: 22px;
+}
+#btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+#form #add-record,
+#edit-record {
+  background-color: rgba(255, 166, 0, 0.733);
+  color: #000000;
+  font-family: 'run';
+  padding: 5px;
+  border-radius: 50px;
+  font-weight: 400;
+  font-size: 20px;
+  margin-top: 10px;
+  font-family: 'run';
+}
+
+#form #edit-record:disabled {
+  background-color: #bbbbbb;
+  color: #000000;
+}
+
+#form #add-record:disabled {
+  background-color: #ff0000;
+  color: #020202;
+
+}
+
+#form #add-record:hover {
+  scale: 1.1;
+}
+
+#form #edit-record:hover{
+  scale: 1.1;
+}
+
+#form input {
+  width: 130px;
+}
+
+.record .change-btn,
+.record .delete-btn {
+  display: inline-block;
+  background-color: rgba(255, 166, 0, 0.733);
+  color: #383e46;
+  font-family: 'run';
+  width: 80px;
+  border-radius: 50px;
+  color: rgb(0, 0, 0);
+  font-weight: 200;
+  font-size: 13px;
+  margin-right: 15px;
+ 
+  letter-spacing: 1px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.change-btn:hover,
+.delete-btn:hover {
+ scale: 1.3;
+}
+
+#load-records {
+  cursor: pointer;
+  outline: none;
+  font-size: 22px;
+  background-color: rgba(255, 166, 0, 0.733);
+  color: #000000;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-family: "run";
+}
+
+#load-records:hover {
+  scale: 1.3;
+}
+
+.change-btn:disabled,
+.delete-btn:disabled {
+  background: linear-gradient(135deg, #bdbdbd 0%, #cfcfae 100%);
+}
+
+.change-btn:disabled:hover,
+.delete-btn:disabled:hover {
+  box-shadow: none;
+  color: #fcfcfc;
+}
+
+#list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 60px;
+}
+
+
+#records {
+  border-radius: 20px;
+  padding: 10px;
+
+}
+
+
+.record {
+  height: 120px;
+  width: 220px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-image: url("../img/shoe.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.info {
+  background-color: #0000008a;
+  padding: 10px;
+  width: 120px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+}
+
+#record-wrapper {
+  justify-content: center;
+  display: flex;
+}
+
+p {
+  margin: 0;
+  font-size: 15px;
+  color: rgb(189, 185, 185);
+  text-shadow: rgb(0, 0, 0) 1px 1px;
+  font-weight: 700;
+  font-family: 'run';
+}
+
+.btn-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+
+
+@media screen and (max-width: 1000px) {
+  body {  
+    overflow: auto;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #form-section {
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    box-shadow: 10px 14px 28px rgb(0, 0, 0), 10px 10px 30px rgba(0, 0, 0, 0.22);
+
+    background-color: rgba(143, 61, 13, 0.158);
+
+  }
+
+  #list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+}

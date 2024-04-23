@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Lily+Script+One&display=swap');
+body {
+  background: linear-gradient(#e6e6e6, #bbbbbb);
+  background-position: 0% 70%;
+  background-image: url("../images/bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: "Lily Script One", system-ui;
+ 
+}
+
+#pet-info{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+main{
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+  flex-direction: column;
+}
+
+h1 {
+  padding: 0px 50px;
+  font-size: 45px;
+  text-align: center;
+  font-weight: 900;
+  color: #0b850d;
+  border-radius: 20px;
+  text-shadow: 2px 2px rgb(0, 0, 0);
+  background: rgb(3,3,3);
+  background: radial-gradient(circle, rgba(3,3,3,0.15449929971988796) 24%, rgba(20, 92, 24, 0.608) 87%);
+}
+
+#adopt-pet {
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+  height: 20vh;
+  margin-left: 30px;
+  border-radius: 7px;
+  background-color: #0348219d;
+  align-items: center;
+}
+
+#adopt-pet h2 {
+  color: #0b850d;
+  text-shadow: 1px 1px black;
+  text-align: center;
+  background-color: #5c5a5a;
+  width: 15vw;
+  border-radius: 10px;
+}
+h2{
+  background-color: #5c5a5a;
+  width: 15vw;
+  border-radius: 10px;
+  text-align: center;
+  text-shadow: 1px 1px black;
+  color: #0b850d;
+}
+#adopt-pet form {
+  display: flex;
+align-items: center;  
+justify-content: center;
+flex-direction: row;
+gap: 20px;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 20px;
+  width: 47vw;
+  border-radius: 7px;
+}
+
+#adoption-info li , #adopted-list li {
+background-color: #36811dc7;
+width: 45vw;
+}
+
+#adoption-info li p, #adopted-list li p {
+  color: #000000;
+  font-weight: 600;
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.wrapper li {
+  display: flex;
+align-items: center;
+  width: 50vw;
+  margin-bottom: 10px;
+}
+
+.wrapper li article {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  overflow: auto;
+  width: 500px;
+border-radius: 20px;
+}
+ul {
+  padding: 0;
+}
+
+.wrapper p {
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 0px;
+}
+
+
+input,select {
+  height: 22px;
+  width: 200px;
+  border-radius: 4px;
+  background-color: rgba(79, 188, 62, 0.719);
+}
+
+button {
+  padding: 0px 10px;
+  font-family: "Lily Script One", system-ui;
+  font-size: 18px;
+}
+
+button:hover{
+  background-color: black;
+  color: white;
+}
+.edit-btn, .done-btn {
+ width: 7vw;
+ margin-right: 7px;
+}
+input::placeholder {
+  color: #000000; 
+  font-family:  cursive;
+font-size: 16px;
+text-align: center;
+}
+
+select {
+  color: #000000; 
+  font-family: cursive;
+font-size: 16px;
+text-align: center;
+height: 30px;
+width: 205px;
+border-top: 2px solid black;
+border-left: 2px solid black;
+}
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 1000px) {
+  main {
+    flex-direction: column;
+  }
+  input{
+    width: 100px;
+  }
+}

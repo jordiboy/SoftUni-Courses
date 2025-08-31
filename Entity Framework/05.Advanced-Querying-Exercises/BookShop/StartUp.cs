@@ -4,6 +4,7 @@
     using Data;
     using Initializer;
     using Microsoft.EntityFrameworkCore;
+    using System.Linq;
     using System.Text;
 
     public class StartUp
@@ -14,7 +15,7 @@
             //DbInitializer.ResetDatabase(db);
 
             string input = (Console.ReadLine());
-            Console.WriteLine(GetBooksReleasedBefore(db, input));
+            Console.WriteLine(GetBooksByAuthor(db, input));
 
 
             //Problem 2 - Age Restriction
@@ -167,6 +168,77 @@
                 {
                     result 
                         .AppendLine($"{book.Title} - {book.EditionType} - ${book.Price:f2}");
+                }
+
+                return result.ToString().TrimEnd();
+            }
+
+
+            // Problem 8 - Author Search
+
+            static string GetAuthorNamesEndingIn(BookShopContext context, string input)
+            {
+                var result = new StringBuilder();
+
+                var autors = context.Authors
+                    .Where(a => a.FirstName.EndsWith(input))
+                    .Select(a => new { a.FirstName, a.LastName })
+                    .OrderBy(a => a.FirstName) 
+                    .ToArray();
+
+                foreach (var author in autors)
+                {
+                    result
+                        .AppendLine ($"{author.FirstName} {author.LastName}");
+                }
+
+                return result.ToString().TrimEnd();
+            }
+
+
+            // Problem 9 - Book Search
+
+            static string GetBookTitlesContaining(BookShopContext context, string input)
+            {
+                var result = new StringBuilder();
+
+                var books = context.Books
+                    .Where(b => b.Title.ToLower().Contains(input.ToLower()))
+                    .OrderBy(b => b.Title)
+                    .ToArray();
+
+                foreach (var book in books)
+                {
+                    result
+                        .AppendLine (book.Title);
+                }
+
+                return result.ToString().TrimEnd();
+            }
+
+
+            // Problem 10 - Book Search by Author
+
+            static string GetBooksByAuthor(BookShopContext context, string input)
+            {
+                var result = new StringBuilder();
+
+                var books = context.Books
+                    .Include(b => b.Author)
+                    .Where(b => b.Author.LastName.ToLower().StartsWith(input.ToLower()))
+                    .OrderBy(b => b.BookId)
+                    .Select(b => new
+                    {
+                        BookTitle = b.Title,
+                        AuthorFirstName = b.Author.FirstName,
+                        AuthorLastName = b.Author.LastName,
+                    })
+                    .ToArray();
+
+                foreach (var book in books)
+                {
+                    result 
+                        .AppendLine ($"{book.BookTitle} ({book.AuthorFirstName} {book.AuthorLastName})");
                 }
 
                 return result.ToString().TrimEnd();

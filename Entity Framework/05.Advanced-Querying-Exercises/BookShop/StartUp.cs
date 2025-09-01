@@ -14,8 +14,8 @@
             using var db = new BookShopContext();
             //DbInitializer.ResetDatabase(db);
 
-            string input = (Console.ReadLine());
-            Console.WriteLine(GetBooksByAuthor(db, input));
+            int input = int.Parse((Console.ReadLine()));
+            Console.WriteLine(CountBooks(db, input));
 
 
             //Problem 2 - Age Restriction
@@ -242,6 +242,66 @@
                 }
 
                 return result.ToString().TrimEnd();
+
+            }
+
+
+            // Problem 11 - Count Books
+
+            static int CountBooks(BookShopContext context, int lengthCheck)
+            {
+                var books = context.Books
+                    .Where(b => b.Title.Length > lengthCheck)
+                    .Select (b => b.Title)
+                    .ToArray();
+
+                int count = 0;
+
+                foreach (var book in books)
+                {
+                    count++;
+                }
+                
+                return count;
+            }
+
+
+            //Problem 12 - Total Book Copies
+
+            static string CountCopiesByAuthor(BookShopContext context)
+            {
+                StringBuilder result = new StringBuilder();
+
+                var authorCopies = context.Books
+                    .Include (a => a.Author)
+                    .Select(a => new
+                    {
+                        a.Author.FirstName,
+                        a.Author.LastName,
+                        a.Copies
+                    })
+                    .ToArray();
+
+                foreach (var author in authorCopies)
+                {
+                    
+                }
+
+                return result.ToString().TrimEnd();
+            }
+
+
+            // Problem 13 - Profit by Category
+
+            static string GetTotalProfitByCategory(BookShopContext context)
+            {
+                StringBuilder result = new StringBuilder();
+
+                var bookCategories = context.Books
+                    .Include(b => b.Copies)
+                    .ToArray();
+
+                    return result.ToString().TrimEnd();
             }
         }
     }

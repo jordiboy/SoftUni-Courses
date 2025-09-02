@@ -272,19 +272,23 @@
             {
                 StringBuilder result = new StringBuilder();
 
-                var authorCopies = context.Books
-                    .Include (a => a.Author)
+                var authorCopies = context.Authors
+                    .Include(a => a.Books)
                     .Select(a => new
                     {
-                        a.Author.FirstName,
-                        a.Author.LastName,
-                        a.Copies
+                        a.FirstName,
+                        a.LastName,
+                        TotalCopies = a.Books
+                        .Sum(b => b.Copies)
                     })
+                    .ToArray()
+                    .OrderByDescending(b => b.TotalCopies)
                     .ToArray();
 
                 foreach (var author in authorCopies)
                 {
-                    
+                    result
+                        .AppendLine($"{author.FirstName} {author.LastName} - {author.TotalCopies}");
                 }
 
                 return result.ToString().TrimEnd();

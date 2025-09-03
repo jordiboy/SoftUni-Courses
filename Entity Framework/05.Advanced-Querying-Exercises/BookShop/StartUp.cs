@@ -14,8 +14,8 @@
             using var db = new BookShopContext();
             //DbInitializer.ResetDatabase(db);
 
-            int input = int.Parse((Console.ReadLine()));
-            Console.WriteLine(CountBooks(db, input));
+            //int input = int.Parse((Console.ReadLine()));
+            Console.WriteLine(GetTotalProfitByCategory(db));
 
 
             //Problem 2 - Age Restriction
@@ -301,9 +301,24 @@
             {
                 StringBuilder result = new StringBuilder();
 
-                var bookCategories = context.Books
-                    .Include(b => b.Copies)
+                var bookCategories = context.Categories
+                    .Include(c => c.CategoryBooks)
+                    .ThenInclude(cb => cb.Category)
+                    .Select(c => new    
+                            { 
+                                c.Name,
+                                TotalProfit = c.CategoryBooks
+                                .Sum(cb => cb.Book.Price * cb.Book.Copies)
+                            })
+                    .OrderByDescending(cb => cb.TotalProfit)
+                    .ThenBy(cb => cb.Name)
                     .ToArray();
+
+                foreach (var category in bookCategories)
+                {
+                    result
+                        .AppendLine($"{category.Name} ${category.TotalProfit:f2}");
+                }
 
                     return result.ToString().TrimEnd();
             }

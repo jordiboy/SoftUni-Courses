@@ -15,7 +15,7 @@
             //DbInitializer.ResetDatabase(db);
 
             //int input = int.Parse((Console.ReadLine()));
-            Console.WriteLine(GetTotalProfitByCategory(db));
+            Console.WriteLine(GetMostRecentBooks(db));
 
 
             //Problem 2 - Age Restriction
@@ -321,6 +321,54 @@
                 }
 
                     return result.ToString().TrimEnd();
+            }
+
+
+            // Problem 14 - Most Recent Books
+
+            static string GetMostRecentBooks(BookShopContext context)
+            {
+                StringBuilder result = new StringBuilder();
+
+                var categories = context.Categories
+                    .Include(c => c.CategoryBooks)
+                    .ThenInclude(cb => cb.Book)
+                    .Select(c => new
+                    {
+                        c.Name,
+                        MostRecentBooks = c.CategoryBooks
+                        .OrderByDescending(c => c.Book.ReleaseDate.Value)
+                        .Take(3)            // If this is off, turn on "IF Statement"
+                        .Select(c => new
+                        {
+                            c.Book.Title,
+                            ReleaseDate = c.Book.ReleaseDate.Value.ToString("yyyy")
+                        })                       
+                        .ToArray()
+                    })                    
+                    .OrderBy(c => c.Name)
+                    .ToArray();                
+
+                foreach (var category in categories)
+                {
+                    result
+                        .AppendLine($"--{category.Name}");
+
+                    //int index = 0;
+
+                    foreach (var book in category.MostRecentBooks)
+                    {
+                        //if (index < 3)
+                        //{
+                            result
+                            .AppendLine($"{book.Title} ({book.ReleaseDate})");
+                        //    index++;
+                        //}                        
+                    }
+                        
+                }
+                    
+                return result.ToString().TrimEnd();
             }
         }
     }

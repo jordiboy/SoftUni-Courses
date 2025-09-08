@@ -16,8 +16,10 @@ namespace ProductShop
             using var db = new ProductShopContext();
             db.Database.Migrate();
 
-            string jsonString = File.ReadAllText("../../../Datasets/users.json");
-            string result = ImportUsers(db, jsonString);
+            //Console.WriteLine("Migration Compleated");
+
+            string jsonString = File.ReadAllText("../../../Datasets/categories.json");
+            string result = ImportCategories(db, jsonString);
 
             Console.WriteLine(result);
         }
@@ -70,6 +72,97 @@ namespace ProductShop
                 context.SaveChanges();
 
                 result = $"Successfully imported {usersToAdd.Count}";               
+            }
+
+            return result;
+        }
+
+        //Problem 2
+
+        public static string ImportProducts(ProductShopContext context, string inputJson)
+        {
+            string result = string.Empty;
+
+            ImportProductDto[]? productDtos = JsonConvert.DeserializeObject<ImportProductDto[]>(inputJson);
+            if (productDtos != null)
+            {
+                ICollection<Product> validProducts = new List<Product>();
+                foreach (var productDto in productDtos)
+                {
+                    if (!IsValid(productDto))
+                    {
+                        continue;
+                    }
+
+                    bool isPriseValid = decimal.TryParse(productDto.Price, out decimal productPrice);
+                    bool isSellerValid = int.TryParse(productDto.SellerId, out int sellerId);
+
+                    if (!isPriseValid || !isSellerValid)
+                    {
+                        continue;
+                    }
+
+                    int? buyerId = null;
+                    if (productDto.BuyerId != null)
+                    {
+                        bool isBuyerIdValid = int.TryParse(productDto.BuyerId, out int parsedBuyerId);
+                        if (!isBuyerIdValid)
+                        {
+                            continue;
+                        }
+
+                        buyerId = parsedBuyerId;
+                    }
+
+                    Product product = new Product()
+                    {
+                        Name = productDto.Name,
+                        Price = productPrice,
+                        SellerId = sellerId,
+                        BuyerId = buyerId
+                    };
+
+                    validProducts.Add(product);
+                }
+
+                context.Products.AddRange(validProducts);
+                context.SaveChanges();
+
+                result = $"Successfully imported {validProducts.Count}";
+            }
+
+            return result;
+        }
+
+        // Problem 3
+
+        public static string ImportCategories(ProductShopContext context, string inputJson)
+        {
+            string result = string.Empty;
+
+            ImportCategoryDto[]? categoryDtos = JsonConvert.DeserializeObject<ImportCategoryDto[]>(inputJson);
+            if (categoryDtos != null)
+            {
+                ICollection<Category> validCategories = new List<Category>();
+
+                foreach (var categoryDto in categoryDtos)
+                {
+                    if (!IsValid(categoryDto))
+                    {
+                        continue;
+                    }
+
+                    Category category = new Category()
+                    {
+                        Name = categoryDto.Name!
+                    };
+
+                    validCategories.Add(category);
+                }
+                context.Categories.AddRange(validCategories);
+                context.SaveChanges();
+
+                result = $"Successfully imported {validCategories.Count}";
             }
 
             return result;

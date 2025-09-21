@@ -65,49 +65,47 @@ CREATE TABLE Teachers (
 			 FOREIGN KEY (ManagerID) REFERENCES Teachers(TeacherID)
 )
 
--- Problem 5 Faild on judge
+-- Problem 5
 
 CREATE DATABASE OnlineStore
 
 GO
 
+USE OnlineStore
+
+GO
+
 CREATE TABLE Cities (
              CityID INT PRIMARY KEY IDENTITY,
-			 [Name] VARCHAR(50) NOT NULL
+			 [Name] VARCHAR(128) NOT NULL
 )
 
 CREATE TABLE Customers (
              CustomerID INT PRIMARY KEY IDENTITY,
-			 [Name] VARCHAR(50) NOT NULL,
+			 [Name] VARCHAR(128) NOT NULL,
 			 Birthday DATE,
-			 CityID INT
-  CONSTRAINT FK_Cusomers_Cities_CityID
- FOREIGN KEY (CityID) REFERENCES Cities(CityID)
+			 CityID INT FOREIGN KEY REFERENCES Cities(CityID)
 )
 
 CREATE TABLE Orders (
              OrderID INT PRIMARY KEY IDENTITY,
-			 CustomerID INT NOT NULL
-  CONSTRAINT FK_Orders_Customers_CustomerID
- FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
+			 CustomerID INT FOREIGN KEY REFERENCES Customers(CustomerID) NOT NULL
 )
 
 CREATE TABLE ItemTypes (
              ItemTypeID INT PRIMARY KEY IDENTITY,
-			 [Name] VARCHAR(50) NOT NULL
+			 [Name] VARCHAR(128) NOT NULL
 )
 
 CREATE TABLE Items (
              ItemID INT PRIMARY KEY IDENTITY,
-			 [Name] VARCHAR(50) NOT NULL,
-			 ItemTypeID INT
-  CONSTRAINT FK_Items_ItemTypes_ItemTypeID
- FOREIGN KEY (ItemTypeID) REFERENCES ItemTypes(ItemTypeID)
+			 [Name] VARCHAR(128) NOT NULL,
+			 ItemTypeID INT FOREIGN KEY REFERENCES ItemTypes(ItemTypeID)   
 )
 
-CREATE TABLE OrderItem (
-             OrderID INT FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
-			 ItemID INT FOREIGN KEY (ItemID) REFERENCES Items(ItemID)
+CREATE TABLE OrderItems (
+             OrderID INT FOREIGN KEY REFERENCES Orders(OrderID),
+			 ItemID INT FOREIGN KEY REFERENCES Items(ItemID)
   CONSTRAINT PK_OrderItem
  PRIMARY KEY (OrderID, ItemID)
 )
@@ -149,3 +147,17 @@ CREATE TABLE Agenda (
 			 SubjectID INT FOREIGN KEY (SubjectID) REFERENCES Subjects(SubjectID)
 			 PRIMARY KEY (StudentID, SubjectID)
 )
+
+-- Problem 7
+
+USE [Geography]
+
+GO
+
+SELECT m.MountainRange,
+		p.PeakName,
+		p.Elevation
+FROM [Mountains] AS m
+INNER JOIN [Peaks] AS p ON m.Id = p.MountainId
+WHERE m.MountainRange = 'Rila'
+ORDER BY p.Elevation DESC

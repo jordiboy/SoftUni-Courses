@@ -68,8 +68,21 @@ ORDER BY MagicWandCreator,
 		 DepositGroup
 
 -- Problem 9
-
--- TODO
+SELECT AgeGroup,
+	   COUNT(AgeGroup) AS WizardCount
+FROM (
+		SELECT CASE
+					WHEN Age BETWEEN 0 AND 10 THEN '[0-10]'
+					WHEN Age BETWEEN 11 AND 20 THEN '[11-20]'
+					WHEN Age BETWEEN 21 AND 30 THEN '[21-30]'
+					WHEN Age BETWEEN 31 AND 40 THEN '[31-40]'
+					WHEN Age BETWEEN 41 AND 50 THEN '[41-50]'
+					WHEN Age BETWEEN 51 AND 60 THEN '[51-60]'
+					WHEN Age > 60 THEN '[61+]'
+				END AS AgeGroup		
+		FROM WizzardDeposits
+	 ) AS dt
+GROUP BY AgeGroup
 
 -- Problem 11
 
@@ -85,7 +98,17 @@ ORDER BY DepositGroup DESC,
 
 -- Problem 12
 
--- TODO
+SELECT SUM(dt.[Difference]) AS SumDifference
+FROM (
+		SELECT h.FirstName AS [Host Wizard],
+			   h.DepositAmount AS [Host Wizard Deposit],
+			   g.FirstName AS [Guest Wizard],
+			   g.DepositAmount AS [Guest Wizard Deposit],
+			   h.DepositAmount - g.DepositAmount AS [Difference]
+		FROM WizzardDeposits AS h
+		JOIN WizzardDeposits AS g ON g.Id = h.Id + 1
+	 ) AS dt
+
 
 -- PART 2
 USE SoftUni
@@ -143,9 +166,28 @@ WHERE ManagerID IS NULL
 
 -- Problem 18
 
--- TODO
+SELECT
+DISTINCT DepartmentID,
+		 Salary AS ThirdHighestSalary
+FROM (
+		SELECT DepartmentID, 
+			   Salary,
+			   DENSE_RANK() OVER(PARTITION BY DepartmentID ORDER BY Salary DESC) AS [Rank]
+		FROM Employees
+	 ) AS RankSalary
+WHERE [Rank] = 3
 
 -- Problem 19
+SELECT TOP (10)
+	   e.FirstName,
+	   e.LastName,
+	   e.DepartmentID
+FROM Employees AS e
+WHERE e.Salary > (
+					SELECT AVG(DepAvg.Salary) AS AvgSalary
+					FROM Employees AS DepAvg
+					WHERE DepAvg.DepartmentID = e.DepartmentID
+					GROUP BY DepAvg.DepartmentID
+				  )
 
--- TODO
 

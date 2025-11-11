@@ -4,6 +4,7 @@ using ProductShop.Data;
 using ProductShop.DTOs.Import;
 using ProductShop.Models;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace ProductShop
 {
@@ -18,9 +19,10 @@ namespace ProductShop
 
             //Console.WriteLine("Migration Compleated");
 
-            string jsonString = File.ReadAllText("../../../Datasets/categories.json");
-            string result = ImportCategories(db, jsonString);
+            //string jsonString = File.ReadAllText("../../../Datasets/categories-products.json");
+            //string result = ImportCategoryProducts(db, jsonString);
 
+            string result = GetCategoriesByProductsCount(db);
             Console.WriteLine(result);
         }
 
@@ -168,6 +170,140 @@ namespace ProductShop
             return result;
         }
 
+        // Problem 4
+
+        public static string ImportCategoryProducts(ProductShopContext context, string inputJson)
+        {
+            string result = string.Empty;            
+
+            ImportCategorytProductDto[]? categorieProductDtos = JsonConvert
+                .DeserializeObject<ImportCategorytProductDto[]>(inputJson);
+            if (categorieProductDtos != null)
+            {
+                ICollection<CategoryProduct> validCategoriesProducts = new List<CategoryProduct>();
+
+                ICollection<int> existingProducts = context.Products
+                    .AsNoTracking()
+                    .Select(p => p.Id)
+                    .ToArray();
+
+                foreach (var dto in categorieProductDtos)
+                {
+                    if (!IsValid(dto))
+                    {
+                        continue;
+                    }
+                    
+                    bool isCategoryIdValid = int.TryParse(dto.CategoryId, out int validCategoryId);
+                    bool isProductIdValid = int.TryParse(dto.ProductId, out int validProductId);                    
+                    
+                    if (!isCategoryIdValid || !isProductIdValid || !existingProducts.Contains(validProductId))
+                    {
+                        continue;
+                    }
+
+                    CategoryProduct categoryProduct = new CategoryProduct()
+                    {
+                        CategoryId = validCategoryId,
+                        ProductId = validProductId
+                    };
+
+                    validCategoriesProducts.Add(categoryProduct);
+                }
+
+                context.AddRange(validCategoriesProducts);
+                context.SaveChanges();
+
+                result = $"Successfully imported {validCategoriesProducts.Count}";
+            }
+
+            return result;
+        }
+
+        // Problem 5 
+
+        public static string GetProductsInRange(ProductShopContext context)
+        {
+            var productsInRange = context.Products
+                .Where(p => p.Price >= 500 &&  p.Price <= 1000)
+                .OrderBy(p => p.Price)
+                .Select(p => new
+                {
+                    name = p.Name,
+                    price = p.Price,
+                    seller = p.Seller.FirstName + " " + p.Seller.LastName
+                })
+                .ToArray();
+
+            string jsonResult = JsonConvert.SerializeObject(productsInRange, Formatting.Indented);
+
+            return jsonResult;
+        }
+
+        // Problem 6
+
+        public static string GetSoldProducts(ProductShopContext context)
+        {
+
+            var soldProducts = context.Products
+                .Where(p => p.BuyerId != null)
+                .OrderBy (p => p.Seller.LastName)
+                .ThenBy (p => p.Seller.FirstName)                
+                .Select(p => new
+                {
+                    firstName = p.Seller.FirstName,
+                    lastName = p.Seller.LastName,
+                    soldProducts = p.Seller.ProductsSold                                                                       
+                        .Select(ps => new
+                        {
+                            name = ps.Name,
+                            price = ps.Price,
+                            buyerFirstName = ps.Buyer.FirstName,
+                            buyerLastName = ps.Buyer.LastName
+                        })
+                        .ToArray()
+
+                })
+                .ToArray();
+
+            string jsonResult = JsonConvert.SerializeObject (soldProducts, Formatting.Indented);
+
+            return jsonResult;
+        }
+
+        // Problem 7
+
+        public static string GetCategoriesByProductsCount(ProductShopContext context)
+        {
+            var categories = context.Categories
+                .Where(c => c.CategoriesProducts.Count > 0)
+                .OrderByDescending(c => c.CategoriesProducts.Count())
+                .Select(c => new
+                {
+                    Category = c.Name,
+                    ProductsCountcategories = c.CategoriesProducts.Count,
+                    AveragePrice = c.CategoriesProducts
+                        .Sum(cp => cp.Product.Price) / c.CategoriesProducts.Count,
+                    TotalRevenue = c.CategoriesProducts
+                        .Sum(cp => cp.Product.Price)
+                })
+                .ToArray();
+
+            var categoriesDto = categories
+                .Select(c => new 
+                {
+                    category = c.Category,
+                    productsCountcategories = c.ProductsCountcategories,
+                    averagePrice = c.AveragePrice.ToString("f2"),
+                    totalRevenue = c.TotalRevenue,
+                })
+                .ToArray();
+
+            string jsonResult = JsonConvert.SerializeObject(categoriesDto, Formatting.Indented);
+
+            return jsonResult;
+        }
+
         public static bool IsValid(object dto)
         {
             var validateContext = new ValidationContext(dto);
@@ -178,5 +314,7 @@ namespace ProductShop
           
             return isValid;
         }
+
+        
     }
 }

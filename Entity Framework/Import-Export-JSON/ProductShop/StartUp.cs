@@ -245,26 +245,25 @@ namespace ProductShop
         public static string GetSoldProducts(ProductShopContext context)
         {
 
-            var soldProducts = context.Products
-                .Where(p => p.BuyerId != null)
-                .OrderBy (p => p.Seller.LastName)
-                .ThenBy (p => p.Seller.FirstName)                
-                .Select(p => new
+            var soldProducts = context.Users
+                .Where(u => u.ProductsSold.Count > 0)                
+                .OrderBy (u => u.LastName)
+                .ThenBy (u => u.FirstName)                
+                .Select(u => new
                 {
-                    firstName = p.Seller.FirstName,
-                    lastName = p.Seller.LastName,
-                    soldProducts = p.Seller.ProductsSold                                                                       
-                        .Select(ps => new
-                        {
-                            name = ps.Name,
-                            price = ps.Price,
-                            buyerFirstName = ps.Buyer.FirstName,
-                            buyerLastName = ps.Buyer.LastName
+                    firstName = u.FirstName,
+                    lastName = u.LastName,
+                    soldProducts = u.ProductsSold
+                        .Select(p => new 
+                        { 
+                            name = p.Name,
+                            price = p.Price,
+                            buyerFirstName = p.Buyer.FirstName,
+                            buyerLastName = p.Buyer.LastName
                         })
                         .ToArray()
-
-                })
-                .ToArray();
+                })                
+                .ToArray().Distinct();
 
             string jsonResult = JsonConvert.SerializeObject (soldProducts, Formatting.Indented);
 
@@ -293,9 +292,9 @@ namespace ProductShop
                 .Select(c => new 
                 {
                     category = c.Category,
-                    productsCountcategories = c.ProductsCountcategories,
+                    productsCount = c.ProductsCountcategories,
                     averagePrice = c.AveragePrice.ToString("f2"),
-                    totalRevenue = c.TotalRevenue,
+                    totalRevenue = c.TotalRevenue.ToString("f2"),
                 })
                 .ToArray();
 

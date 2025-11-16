@@ -1,0 +1,104 @@
+﻿using ProductShop.Data;
+using ProductShop.DTOs.Import;
+using ProductShop.Models;
+using ProductShop.Utilities;
+using System.ComponentModel.DataAnnotations;
+
+namespace ProductShop
+{
+    public class StartUp
+    {
+        public static void Main()
+        {
+            using ProductShopContext dbContext = new ProductShopContext();
+
+            ResetAndSeedDatabase(dbContext);
+            //string result = ImportUsers(dbContext);
+            //WriteSerializationResult("users-and-products.xml", result);
+            //Console.WriteLine(result);
+        }
+
+        // Problem 1
+
+        public static string ImportUsers(ProductShopContext context, string inputXml)
+        {
+            ICollection<User> usersToImport = new List<User>();
+
+            ImportUserDto[]? importUserDtos = XmlSerializerWrapper
+                .Deserialize<ImportUserDto[]>(inputXml, "Users");
+
+            if (importUserDtos != null)
+            {
+                foreach (var userDto in importUserDtos)
+                {
+                    if (!IsValid(userDto))
+                    {
+                        continue;
+                    }
+
+                    int? age = null!;
+
+                    if (userDto.Age != null)
+                    {
+                        bool isAgeParsible = int.TryParse(userDto.Age, out int parsedAge);
+
+                        age = parsedAge;
+                    }
+
+                    User newUser = new User()
+                    {
+                        FirstName = userDto.FirstName,
+                        LastName = userDto.LastName,
+                        Age = age
+                    };
+                    usersToImport.Add(newUser);
+                }
+
+                context.AddRange(usersToImport);
+                context.SaveChanges();
+            }
+
+            return $"Successfully imported {usersToImport.Count}";
+        }
+
+        private static void ResetAndSeedDatabase(ProductShopContext dbContext)
+        {
+            dbContext.Database.EnsureDeleted();
+            dbContext.Database.EnsureCreated();
+
+            string xmlFileText = ReadXmlDatasetFileContents("users.xml");
+            string result = ImportUsers(dbContext, xmlFileText);
+
+            //xmlFileText = ReadXmlDatasetFileContents("products.xml");
+            //result = ImportProducts(dbContext, xmlFileText);
+
+            //xmlFileText = ReadXmlDatasetFileContents("categories.xml");
+            //result = ImportCategories(dbContext, xmlFileText);
+
+            //xmlFileText = ReadXmlDatasetFileContents("categories-products.xml");
+            //result = ImportCategoryProducts(dbContext, xmlFileText);
+
+            Console.WriteLine(result);
+        }
+
+        private static string ReadXmlDatasetFileContents(string fileName)
+        {
+            string xmlFileDirPath = Path
+                .Combine(Directory.GetCurrentDirectory(), "../../../Datasets/");
+            string xmlFileText = File
+                .ReadAllText(xmlFileDirPath + fileName);
+
+            return xmlFileText;
+        }
+
+        private static bool IsValid(object obj)
+        {
+            ValidationContext validationContext = new ValidationContext(obj);
+            ICollection<ValidationResult> validationResults
+                = new List<ValidationResult>();
+
+            return Validator
+                .TryValidateObject(obj, validationContext, validationResults);
+        }
+    }
+}

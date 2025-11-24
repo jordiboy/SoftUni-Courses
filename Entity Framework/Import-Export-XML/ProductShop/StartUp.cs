@@ -61,6 +61,103 @@ namespace ProductShop
             return $"Successfully imported {usersToImport.Count}";
         }
 
+        // Problem 2
+
+        public static string ImportProducts(ProductShopContext context, string inputXml)
+        {
+            ICollection<Product> productsToImport = new List<Product>();
+
+            ImportProductDto[]? importProductDtos = XmlSerializerWrapper
+                .Deserialize<ImportProductDto[]>(inputXml, "Products");
+
+            if (importProductDtos != null)
+            {
+                foreach (var product in importProductDtos)
+                {
+                    if (!IsValid(product))
+                    {
+                        continue;
+                    }
+                    
+                    decimal price = decimal.Parse(product.Price);                        
+
+                    int? buyerId = null!;
+                    if (product.BuyerId != null)
+                    {
+                        bool isBuyerIdParsible = int.TryParse(product.BuyerId, out int buyerIdParsible);
+                        buyerId = buyerIdParsible;
+                    }
+                    
+                    int SellerId = int.Parse(product.SellerId);
+
+                    productsToImport.Add(new Product()
+                    {
+                        Name = product.Name,
+                        Price = price,
+                        SellerId = SellerId,
+                        BuyerId = buyerId
+                    });                   
+                    
+                }
+
+                context.AddRange(productsToImport);
+                context.SaveChanges();
+            }
+
+            return $"Successfully imported {productsToImport.Count}";
+        }
+
+        // Problem 3
+
+        public static string ImportCategories(ProductShopContext context, string inputXml)
+        {
+            ICollection<Category> categoriesToImport = new List<Category>();
+
+            ImportCategoryDto[]? importCategoryDtos = XmlSerializerWrapper
+                .Deserialize<ImportCategoryDto[]>(inputXml, "Categories");
+
+            if (importCategoryDtos != null)
+            {
+                foreach (var categoryDto in importCategoryDtos)
+                {
+                    if (!IsValid(categoryDto))
+                    {
+                        continue;
+                    }
+
+                    Category newCategory = new Category()
+                    {
+                        Name = categoryDto.Name
+                    };
+                    categoriesToImport.Add(newCategory);
+
+                }
+                context.AddRange(categoriesToImport);
+                context.SaveChanges();
+            }
+
+            return $"Successfully imported {categoriesToImport.Count}";
+        }
+
+        // Problem 4
+
+        public static string ImportCategoryProducts(ProductShopContext context, string inputXml)
+        {
+            ICollection<CategoryProduct> categoryProductsToImport = new List<CategoryProduct>();
+
+            ImportCategoryProductDto[]? importCategoryProductsDtos = XmlSerializerWrapper
+                .Deserialize<ImportCategoryProductDto[]>(inputXml, "CategoryProducts");
+
+            if (importCategoryProductsDtos != null)
+            {
+                foreach (var categoryProductsDto in importCategoryProductsDtos)
+                {
+
+                }
+            }
+
+            return $"Successfully imported {categoryProductsToImport.Count}";
+        }
         private static void ResetAndSeedDatabase(ProductShopContext dbContext)
         {
             dbContext.Database.EnsureDeleted();
@@ -69,11 +166,11 @@ namespace ProductShop
             string xmlFileText = ReadXmlDatasetFileContents("users.xml");
             string result = ImportUsers(dbContext, xmlFileText);
 
-            //xmlFileText = ReadXmlDatasetFileContents("products.xml");
-            //result = ImportProducts(dbContext, xmlFileText);
+            xmlFileText = ReadXmlDatasetFileContents("products.xml");
+            result = ImportProducts(dbContext, xmlFileText);
 
-            //xmlFileText = ReadXmlDatasetFileContents("categories.xml");
-            //result = ImportCategories(dbContext, xmlFileText);
+            xmlFileText = ReadXmlDatasetFileContents("categories.xml");
+            result = ImportCategories(dbContext, xmlFileText);
 
             //xmlFileText = ReadXmlDatasetFileContents("categories-products.xml");
             //result = ImportCategoryProducts(dbContext, xmlFileText);

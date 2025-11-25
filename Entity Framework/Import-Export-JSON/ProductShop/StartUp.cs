@@ -15,7 +15,7 @@ namespace ProductShop
         public static void Main()
         {
             using var db = new ProductShopContext();
-            db.Database.Migrate();
+            //db.Database.Migrate();
 
             //Console.WriteLine("Migration Compleated");
 
@@ -275,8 +275,6 @@ namespace ProductShop
         public static string GetCategoriesByProductsCount(ProductShopContext context)
         {
             var categories = context.Categories
-                .Where(c => c.CategoriesProducts.Count > 0)
-                .OrderByDescending(c => c.CategoriesProducts.Count())
                 .Select(c => new
                 {
                     Category = c.Name,
@@ -286,6 +284,8 @@ namespace ProductShop
                     TotalRevenue = c.CategoriesProducts
                         .Sum(cp => cp.Product.Price)
                 })
+                .OrderByDescending(c => c.ProductsCountcategories)
+                .ThenBy(c => c.TotalRevenue)
                 .ToArray();
 
             var categoriesDto = categories

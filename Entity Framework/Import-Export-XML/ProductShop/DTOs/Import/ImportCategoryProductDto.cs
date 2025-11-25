@@ -8,7 +8,7 @@ namespace ProductShop.DTOs.Import
     public class ImportCategoryProductDto
     {
         [Required]
-        [XmlAnyElement("CategoryId")]
+        [XmlElement("CategoryId")]
         public string CategoryId { get; set; } = null!;
 
         [Required]
